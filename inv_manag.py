@@ -19,13 +19,13 @@ class InventoryManagementSystem:
 
     def update_price(self, product_id, new_price):
         if product_id in self.inventory:
-            self.inventory[product_id][1][1] = new_price  # Update price
+            self.inventory[product_id][1][1] = new_price  
         else:
             print(f"Error: Product ID {product_id} not found.")
 
     def update_discount(self, product_id, new_discount):
         if product_id in self.inventory:
-            self.inventory[product_id][1][2] = new_discount  # Update discount
+            self.inventory[product_id][1][2] = new_discount 
         else:
             print(f"Error: Product ID {product_id} not found.")
 
@@ -43,10 +43,8 @@ class InventoryManagementSystem:
             print(f"Price: {variable_details[1]}")
             print(f"Discount: {variable_details[2]}%\n")
 
-# Creating the Inventory Management System object
 ims = InventoryManagementSystem()
 
-# Adding products
 ims.add_new_product(1, 'Iphone 16', 'Digital', 100, 100000, 10)
 ims.add_new_product(3, 'T-shirt', 'Clothing', 200, 500, 20)
 ims.add_new_product(2, 'Digital drawing pad', 'Digital', 50, 5000, 5)
@@ -58,7 +56,6 @@ ims.add_new_product(6, 'Formal shoes', 'Footwear', 50, 3000, 5)
 print("\nInventory Management System:")
 ims.display_inventory()
 
-# Updating inventory details
 print("\nUpdating stock level of Product ID 1:")
 ims.update_stock_level(1, 50)
 
@@ -68,6 +65,5 @@ ims.update_price(2, 6000)
 print("\nUpdating discount of Product ID 3:")
 ims.update_discount(3, 25)
 
-# Display updated inventory
 print("\nUpdated Inventory:")
 ims.display_inventory()
