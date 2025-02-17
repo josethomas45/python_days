@@ -1,0 +1,50 @@
+from PIL import Image
+import matplotlib.pyplot as plt
+
+# Install Matplotlib if not already installed
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    !pip install matplotlib
+
+# Provide the correct path to your image file
+image_path = "/content/drive/MyDrive/WhatsApp Image 2023-09-18 at 20.14.45.jpeg"  # Update with your image path
+
+# Open the image using Pillow
+try:
+    img = Image.open(image_path)
+except FileNotFoundError:
+    print(f"Error: Image file not found at {image_path}")
+    exit()  # Exit if the image file is not found
+
+# Get and display image dimensions
+width, height = img.size  # Use img.size to get dimensions
+print(f"Image Dimensions: Width = {width}, Height = {height}")
+
+# Access and display pixel value within valid boundaries
+x, y = 10, 10  # Change to desired pixel coordinates within image boundaries
+try:
+    pixel_value = img.getpixel((x, y))
+    print(f"Pixel value at ({x}, {y}): {pixel_value}")
+except IndexError:
+    print(f"Error: Pixel coordinates ({x}, {y}) are out of bounds.")
+
+# Modify a pixel within valid boundaries
+x, y = 10, 10  # Change to desired pixel coordinates within image boundaries
+try:
+    img.putpixel((x, y), (250, 250, 250))  # Set to off-white
+except IndexError:
+    print(f"Error: Pixel coordinates ({x}, {y}) are out of bounds.")
+
+# Clone the image
+img_clone = img.copy()
+
+# Save the modified image (choose an appropriate format)
+save_path = "modified_image.png"  # Change to your desired save path and format (PNG recommended)
+img.save(save_path)
+print(f"Modified image saved as {save_path}")
+
+# Display the modified image using Matplotlib
+plt.imshow(img)
+plt.axis("on")
+plt.show()
