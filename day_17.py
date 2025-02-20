@@ -14,7 +14,7 @@ class Car:
 
     def drive(self,km):
         self.mileage += km
-        print(f'Drove {km} km.\n New mileage: {self.mileage} km')
+        print(f'\n\n Drove {km} km.\n New mileage: {self.mileage} km')
 
 car1 = Car('Toyota','Corolla',2019,mileage=1000)
 car2 = Car('Honda','Civic',2018,mileage=500)
